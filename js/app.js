@@ -51,7 +51,15 @@ function renderTreemap(hierarchyData) {
     .selectAll("g")
     .data(leaves)
     .join("g")
-    .attr("transform", (d) => `translate(${d.x0},${d.y0})`);
+    .attr("transform", (d) => `translate(${d.x0},${d.y0})`)
+    .attr("opacity", 0)
+    .call((sel) =>
+      sel
+        .transition()
+        .delay((d, i) => Math.min(i, 60) * 6)
+        .duration(280)
+        .attr("opacity", 1)
+    );
 
   cell
     .append("rect")
@@ -106,7 +114,7 @@ async function search(rawInput) {
 
     repoTitle.innerHTML = `<a href="${info.htmlUrl}" target="_blank" rel="noopener" style="color:inherit">${parsed.owner}/${parsed.repo}</a>`;
     repoDescription.textContent = info.description ?? "";
-    repoStats.textContent = `⭐ ${info.stars.toLocaleString("es-MX")} · ${fileCount.toLocaleString("es-MX")} archivos · ${formatBytes(totalBytes)}`;
+    repoStats.textContent = `${info.stars.toLocaleString("es-MX")} estrellas · ${fileCount.toLocaleString("es-MX")} archivos · ${formatBytes(totalBytes)}`;
     repoInfoSection.hidden = false;
 
     statusText.textContent = truncated
