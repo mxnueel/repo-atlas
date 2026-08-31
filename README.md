@@ -6,6 +6,8 @@
 
 **Live: [mxnueel.github.io/repo-atlas](https://mxnueel.github.io/repo-atlas/)**
 
+![Repo Atlas screenshot](docs/screenshot.png)
+
 Paste any public GitHub repository and instantly see a visual map of its codebase — which folders hold the most code, what languages dominate, at a glance. No account, no server, static site.
 
 ## Why
