@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Repo Atlas — mapa visual de cualquier repositorio de GitHub</title>
+    <meta
+      name="description"
+      content="Pega la URL de cualquier repositorio publico de GitHub y ve al instante un mapa visual de su codigo: donde se concentra, que lenguajes predominan."
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>🗺️ Repo Atlas</h1>
+      <p class="subtitle">Pega cualquier repositorio público de GitHub y ve un mapa visual de su código, al instante.</p>
+    </header>
+
+    <form id="search-form">
+      <input id="repo-input" type="text" placeholder="owner/repo o https://github.com/owner/repo" autocomplete="off" />
+      <button type="submit">Ver mapa</button>
+    </form>
+    <div id="examples">
+      Prueba con:
+      <button type="button" class="example-btn" data-repo="mxnueel/sismos-mx">mxnueel/sismos-mx</button>
+      <button type="button" class="example-btn" data-repo="mxnueel/vuln-lens">mxnueel/vuln-lens</button>
+      <button type="button" class="example-btn" data-repo="sindresorhus/awesome">sindresorhus/awesome</button>
+    </div>
+
+    <div id="status-text"></div>
+
+    <section id="repo-info" hidden>
+      <h2 id="repo-title"></h2>
+      <p id="repo-description"></p>
+      <div id="repo-stats"></div>
+      <div id="language-bar"></div>
+    </section>
+
+    <div id="treemap-container">
+      <svg id="treemap"></svg>
+    </div>
+
+    <footer>
+      Datos en vivo de la <a href="https://docs.github.com/en/rest" target="_blank" rel="noopener">API pública de GitHub</a>.
+      Solo funciona con repositorios públicos. Código abierto en
+      <a href="https://github.com/mxnueel/repo-atlas" target="_blank" rel="noopener">GitHub</a>.
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" crossorigin="anonymous"></script>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
