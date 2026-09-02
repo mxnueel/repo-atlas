@@ -10,7 +10,7 @@
 
 Paste any public GitHub repository and instantly see a visual map of its codebase — which folders hold the most code, what languages dominate, at a glance. No account, no server, static site.
 
-## Why
+## Why this instead of CodeSee or Sourcegraph
 
 Understanding an unfamiliar codebase's shape usually means clicking through folders one at a time. Paid products have been built specifically to solve this — CodeSee raised funding and was acquired by GitKraken; Sourcegraph, an enterprise code-intelligence platform, charges around $16k/year and killed its free tier in 2025. Both are proof that "see the shape of the code before you read it" is worth paying for. Repo Atlas is a free, single-purpose, zero-setup version of that one specific idea.
 

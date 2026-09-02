@@ -47,19 +47,28 @@ function renderTreemap(hierarchyData) {
 
   const leaves = root.leaves();
 
-  const cell = svg
+  // D3 anima el atributo SVG con su propio timer (no una @keyframes de CSS),
+  // asi que la media query global de prefers-reduced-motion en style.css no
+  // la alcanza — hay que revisarla aqui a mano.
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const cellSelection = svg
     .selectAll("g")
     .data(leaves)
     .join("g")
-    .attr("transform", (d) => `translate(${d.x0},${d.y0})`)
-    .attr("opacity", 0)
-    .call((sel) =>
-      sel
-        .transition()
-        .delay((d, i) => Math.min(i, 60) * 6)
-        .duration(280)
-        .attr("opacity", 1)
-    );
+    .attr("transform", (d) => `translate(${d.x0},${d.y0})`);
+
+  const cell = reduceMotion
+    ? cellSelection.attr("opacity", 1)
+    : cellSelection
+        .attr("opacity", 0)
+        .call((sel) =>
+          sel
+            .transition()
+            .delay((d, i) => Math.min(i, 60) * 6)
+            .duration(280)
+            .attr("opacity", 1)
+        );
 
   cell
     .append("rect")
