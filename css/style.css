@@ -5,8 +5,11 @@
   --border: #262b36;
   --text: #eef0f3;
   --text-dim: #8b93a3;
-  --accent: #4da3ff;
-  --accent-2: #7c5cff;
+  /* Cartographic duotone (terrain teal + contour amber) - distinct from the
+     blue/purple accent reused across the rest of this portfolio, chosen for
+     "Atlas": a map of a codebase should look like a map, not a dashboard. */
+  --accent: #35c9a5;
+  --accent-2: #e0984a;
   --font-display: "Space Grotesk", -apple-system, sans-serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
@@ -40,7 +43,7 @@ body {
 header {
   padding: 26px 20px 10px;
   text-align: center;
-  background: radial-gradient(ellipse 700px 220px at 50% 0%, rgba(124, 92, 255, 0.12), transparent);
+  background: radial-gradient(ellipse 700px 220px at 50% 0%, rgba(224, 152, 74, 0.12), transparent);
 }
 
 .brand {
@@ -116,7 +119,7 @@ header h1 {
 #repo-input:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(77, 163, 255, 0.15);
+  box-shadow: 0 0 0 3px rgba(53, 201, 165, 0.15);
 }
 
 #search-form button,
@@ -141,7 +144,7 @@ header h1 {
 }
 
 #search-form button:hover {
-  box-shadow: 0 6px 20px rgba(77, 163, 255, 0.3);
+  box-shadow: 0 6px 20px rgba(53, 201, 165, 0.3);
 }
 
 #examples {
@@ -165,7 +168,7 @@ header h1 {
 
 .example-btn:hover {
   border-color: var(--accent);
-  background: rgba(77, 163, 255, 0.08);
+  background: rgba(53, 201, 165, 0.08);
 }
 
 #status-text {
@@ -280,6 +283,7 @@ header h1 {
 footer {
   padding: 12px 20px;
   font-size: 11px;
+  letter-spacing: 0.01em; /* small text: slight positive tracking for legibility */
   color: var(--text-dim);
   border-top: 1px solid var(--border);
   text-align: center;
